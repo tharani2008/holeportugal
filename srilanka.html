@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hole Golf Resort - Discover Portugal</title>
+    <style>
+        /* Global Styles */
+        body, h1, h2, h3, p, a {
+            margin: 0;
+            padding: 0;
+            font-family: Constantia, 'Lucida Bright', 'DejaVu Serif', Georgia, 'serif';
+            color: #333;
+        }
+        body {
+            background-color: #f9f9f9;
+            font-size: 16px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .logo img {
+            width: 42px;
+        }
+        
+         .navigationbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .navigationbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navigationbar ul li a {
+            color: black;
+            font-family: 'Montserrat', sans-serif; /* Elegant sans-serif font for navigation */
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navigationbar ul li a:hover {
+            color: #4CAF50;
+        }
+
+       
+
+		 /* Dropdown Menu Styling */
+        .dropdown {
+            display: none;
+            position: absolute;
+        
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+            z-index: 10;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown a:hover {
+            background-color: #f2f2f2;
+            color: #4CAF50;
+			display: block;
+        }
+
+        .navigationbar ul li:hover .dropdown {
+            display: block;
+        }
+
+		 /* Search Bar Styling */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #666;
+            border-radius: 5px;
+        }
+        .search-bar input {
+            padding: 8px 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        .search-bar button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: #3e8e41;
+        } 
+
+        /* Hero Section */
+        .hero {
+            background: url("36c251181cead8336d6fadfc5d107a21.jpg") no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            padding: 60px;
+            height: 500px;
+            text-align: center;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .hero h2, .hero p {
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: white;
+        }
+
+        /* Content Sections */
+        section {
+            margin: 60px 20px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        section img {
+            width: 80%;
+            height: 600px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .social-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .social-section p {
+            font-size: 18px;
+            margin-right: 10px;
+            color: #333;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link img {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #4CAF50;
+            padding: 5px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link img:hover {
+            background-color: ##4CAF50;
+            border-color: #4CAF50;
+        }
+		
+		.search-bar {
+            position: absolute;
+            right: 80px;
+        }
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 17px;
+            z-index: 10;
+        }
+        .navigationbar {
+            padding-left: 50px;
+        }
+
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background-color: #4CAF50;
+            color: whitesmoke;
+        }
+        footer a {
+            color: white;
+        }
+		.hero h2{top:250px;}
+		.hero p{ position:relative;
+			top:250px;}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navigationbar">
+            <div class="logo">
+                <img src="copy.png" alt="Hole Golf Resort Logo">
+            </div>
+            <ul>
+                <li><a href="index2.html">Home</a></li>
+                <li><a href="about.html">Facilities</a>
+				 <div class="dropdown">
+                    <a href="accommodations.html">Accommodations</a>
+                    <a href="dining.html">Dining</a>
+                </div>
+				
+				</li>
+                <li><a href="packages.html">Packages</a>
+				<div class="dropdown">
+                    <a href="package1.html">Five Rounds Package</a>
+                    <a href="package2.html">Triple Tee Package</a>
+                    <a href="package3.html">Getway Break Package</a>
+                    <a href="package4.html">Family Getaway Package</a>
+					<a href="package5.html">Corporate Retreat Package</a>
+                    <a href="package6.html">Event Hosting Package</a>
+                </div>
+				</li>
+                <li><a href="us.html">About Us</a></li>
+                <li><a href="portugal.html">Portugal</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+			 <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Discover Portugal</h2>
+            <p>Explore the vibrant culture, beauty, and history of Portugal</p>
+        </section>
+
+        <!-- Introduction Section -->
+        <section>
+            <img src="Marinha-Dawn.jpg" alt="Beautiful Beach in Portugal"> 
+            <h2>Why Visit Portugal?</h2>
+            <p>Portugal is a land of diverse landscapes, from golden beaches to rolling vineyards and historic cities. Known for its rich maritime history, it's a destination for lovers of culture, gastronomy, and scenic beauty.</p>
+        </section>
+
+        <!-- Top Attractions Section -->
+        <section>
+            <img src="39284497842_44783ef6b6_b.jpg" alt="Lisbon Castle">
+            <h2>Top Attractions</h2>
+            <p>Discover some of the most popular attractions in Portugal:</p>
+            <ul>
+                <li>Lisbon's historic Alfama district</li>
+                <li>Sintra's fairytale palaces</li>
+                <li>Porto's famous Douro Valley</li>
+                <li>The Algarve's golden beaches</li>
+                <li>Evora's Roman ruins</li>
+                <li>The iconic Belem Tower</li>
+            </ul>
+        </section>
+
+        <!-- Cultural Richness Section -->
+        <section>
+            <img src="Portuguese-Fado.webp" alt="Traditional Fado Performance in Portugal">
+            <h2>Cultural Richness</h2>
+            <p>Portugal's culture is deeply rooted in music, art, and cuisine. Enjoy the melancholic beauty of Fado music, savor world-class wine, and explore charming cobblestone streets filled with centuries-old traditions.</p>
+        </section>
+    </main>
+    <div class="social-section">
+        <p>We're social too...</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/portugal_golfresort/" target="_blank" class="social-link">
+                <img src="OIP (17).jpg" alt="Instagram" />
+            </a>
+            <a href="https://www.facebook.com/portugal_golfresort/" target="_blank" class="social-link">
+                <img src="R.png" alt="Facebook" />
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Hole Golf Resort | <p>For inquiries, email us at <a href="mailto:info@holegolfresort.com">info@holegolfresort.com</a></p></p>
+    </footer>
+</body>
+</html>

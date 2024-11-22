@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hole Golf Resort - About Us</title>
+    <style>
+        /* Global Styles */
+        body, h1, h2, h3, p, a {
+            margin: 0;
+            padding: 0;
+            font-family:"Montserrat', sans-serif";
+            color: #333;
+        }
+        body {
+            background-color: #f9f9f9;
+            font-size: 16px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styling */
+        header {
+            background: linear-gradient(145deg, #222, #444);
+            color: #fff;
+            position: relative;
+        }
+		  .navigationbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+
+        .navigationbar ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navigationbar ul li a {
+            color: black;
+            font-family: 'Montserrat', sans-serif; /* Elegant sans-serif font for navigation */
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .navigationbar ul li a:hover {
+            color: #4CAF50;
+        }
+
+       
+
+		 /* Dropdown Menu Styling */
+        .dropdown {
+            display: none;
+            position: absolute;
+        
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+            z-index: 10;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: black;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown a:hover {
+            background-color: #f2f2f2;
+            color: #4CAF50;
+			display: block;
+        }
+
+        .navigationbar ul li:hover .dropdown {
+            display: block;
+        }
+
+		 /* Search Bar Styling */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #666;
+            border-radius: 5px;
+        }
+        .search-bar input {
+            padding: 8px 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+        .search-bar button {
+            padding: 8px 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: #3e8e41;
+        } 
+
+         
+        /* Hero Section Styling */
+        .hero {
+            background: url("R (11).jpg") no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: #fff;
+            padding: 60px;
+            height: 400px;
+            text-align: center;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Main Content Styling */
+        main {
+            margin: 60px 0;
+        }
+        section {
+            margin: 40px 0;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        #about-us h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        #about-us h3 {
+            font-size: 2em;
+            color: #333;
+            margin-top: 20px;
+			font-family: 'Montserrat', sans-serif;
+        }
+        section p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #666;
+            font-family:'Montserrat', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        /* Gallery Styling */
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .gallery img {
+            width: 30%;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Button Styles */
+        .cta-button {
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            font-size: 1.1em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px 5px;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 50px;
+            background-color:#45a049;
+            color: whitesmoke;
+        }
+		
+		.social-section {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the content horizontally */
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    text-align: center; /* Ensures text is centered */
+}
+
+.social-section p {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #333;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-link img {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #4CAF50;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.social-link img:hover {
+    background-color: ##4CAF50;
+	border-color: #4CAF50;
+    
+}
+		.search-bar {
+            position: absolute;
+            right: 80px;
+        }
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 17px;
+            z-index: 10;
+        }
+        .navigationbar {
+            padding-left: 50px;
+        }
+        footer a {
+            color: white;
+        }
+
+        .search-bar {
+            position: absolute;
+            right: 80px;
+        }
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 17px;
+            z-index: 10;
+        }
+        .navigationbar {
+            padding-left: 50px;
+        }
+		
+		.hero h2{top:200px;}
+		.hero p{ position:relative;
+			top:200px;}
+		
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navigationbar">
+            <div class="logo">
+                <img src="copy.png" width="42px" alt="Hole Golf Resort Logo">
+            </div>
+            <ul>
+                <li><a href="index2.html">Home</a></li>
+                <li><a href="about.html">Facilities</a>
+                    <div class="dropdown">
+                      <a href="accommodation.html">Accommodations</a>
+                      <a href="dining.html">Dining</a>
+                    </div>
+                </li>
+                <li><a href="packages.html">Packages</a>
+				
+				<div class="dropdown">
+					<a href="package1.html">Five Rounds Package</a>
+                    <a href="package2.html">Triple Tee Package</a>
+                    <a href="package3.html">Getway Break Package</a>
+                    <a href="package4.html">Family Getaway Package</a>
+                    <a href="package5.html">Corporate Retreat Package</a>
+                    <a href="package6.html">Event Hosting Package</a>
+					</div>
+				</li>
+                <li><a href="us.html">About Us</a></li>
+                <li><a href="srilanka.html">Portugal</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>About Us</h2>
+            <p>Learn more about Hole Golf Resort, the premier golf destination in Portugal</p>
+        </section>
+
+        <!-- About Us Section -->
+       <section id="about-us">
+    <h2>Our Story</h2>
+    <p>Hole Golf Resort was created to offer a premier golfing experience in Portugal. Nestled in the heart of Portugal's stunning landscapes, our resort combines world-class golf courses with luxurious accommodations, making it a paradise for golf enthusiasts.</p>
+    <p>From our meticulously designed greens to our exceptional hospitality, we are committed to creating unforgettable experiences for our guests. Whether it's a challenging round of golf, serene relaxation, or discovering Portugal's rich heritage, we have something special for everyone.</p>
+    <p>Join us to create cherished memories in Portugal's breathtaking and diverse settings.</p>
+
+    <h3>Our Mission</h3>
+    <p>To deliver exceptional service and facilities, providing memorable experiences for our guests while honoring Portugal's natural beauty and advancing the sport of golf.</p>
+
+    <h3>Our Vision</h3>
+    <p>Our vision is to be Portugal's premier destination for golf enthusiasts, offering world-class facilities, unparalleled service, and a uniquely Portuguese experience. We aspire to be a retreat where golf lovers can immerse themselves in both the sport and Portugal's captivating charm.</p>
+
+
+        </section>
+
+        <!-- Gallery Section -->
+        <section>
+            <h2>Explore Our Resort</h2>
+            <div class="gallery">
+                <img src="Golf-course-806x400_tcm8-139001_w806.avif" alt="Golf Course">
+                <img src="d04c1a_3323447d24ee43f79a459d1542120011~mv2.webp" alt="Resort View">
+                <img src="Golfing-in-Sri-Lanka-tour-gallery-pop-up-6-min.jpg"alt="Guests Relaxing">
+            </div>
+			
+			<!-- Call-to-Action Buttons -->
+            <button class="cta-button" onclick="window.location.href='booking.html'">Book Now</button>
+        </section>
+    </main>
+	<div class="social-section">
+    <p>We're social too...</p>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/sl_golfresort/" target="_blank" class="social-link">
+            <img src="OIP (17).jpg" alt="Instagram" />
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61568778455650" target="_blank" class="social-link">
+            <img src="R.png" alt="Facebook" />
+        </a>
+    </div>
+</div>
+
+    <footer>
+         <p> &copy; 2024 Hole Golf Resort | <p>For inquiries, email us at <a href="mailto:info@holegolfresort.com">info@holegolfresort.com</a></p></p>
+    </footer>
+</body>
+</html>
